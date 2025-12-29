@@ -66,8 +66,10 @@ export default function EditRecipeModal({ editData, setEditData, onCancel, onSav
                         value={editData.instructions}
                         onChange={(e) => setEditData({ ...editData, instructions: e.target.value })}
                     />
-                    <button type="submit">Save</button>
-                    <button type="button" onClick={onCancel}>Cancel</button>
+                    <div className="edit-buttons">
+                        <button type="submit">Sauvegarder</button>
+                        <button type="button" onClick={onCancel}>Annuler</button>
+                    </div>
                 </form>
             </div>
         </div>

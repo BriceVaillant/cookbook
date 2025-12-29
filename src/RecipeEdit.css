@@ -1,74 +1,129 @@
 .editrecipecontainer {
-  display: flex;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100svh;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid red;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
 }
-.editrecipecontainer .editrecipeform {
-  width: 60vw;
-  height: 60svh;
-  min-width: 200px;
-  min-height: 700px;
-  border: 3px solid black;
-  background: white;
-  border-radius: 14px;
-  padding: 1rem;
+.editrecipecontainer .editrecipe {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: var(--darkgrey);
 }
-
-#editrecipetitle,
-#editingredients,
-#editinstructions {
+.editrecipecontainer .editrecipeform {
   width: 90%;
-  border-radius: 14px;
-  padding: 4px;
-  padding-left: 7px;
+  max-width: 800px;
+  height: 85vh;
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+}
+
+/* Form Inputs */
+#editrecipetitle {
+  width: 100%;
+  height: 50px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
   resize: none;
-  overflow: auto;
-  background-color: lightgrey;
+  font-family: inherit;
+  color: var(--primary-color);
 }
 
 #editingredients,
 #editinstructions {
-  height: 30%;
-  font-size: 14px;
-  margin-top: 1rem;
-}
-
-.editrecipeform button {
-  background-color: darkred;
-  color: white;
-  border: 1px solid #ccc;
-  padding: 6px 12px;
-  cursor: pointer;
-  border-radius: 6px;
-  width: 45%;
-}
-
-#editrecipetitle {
-  height: 35px;
-  font-size: 20px;
+  width: 100%;
+  flex: 1;
+  min-height: 150px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: none;
+  transition: border-color 0.3s ease;
 }
 
 .editrecipecontainer textarea:focus {
-  outline: 2px solid var(--dark);
-  background-color: #f9f9f9;
+  outline: none;
+  border-color: var(--primary-color);
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.1);
 }
 
-@media (max-width: 780px) {
-  .editrecipecontainer .editrecipeform {
-  width: 80vw;
-  height: 60svh;
+/* File Input */
+.editrecipeform input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  cursor: pointer;
 }
+
+/* Buttons Container */
+.edit-buttons {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.editrecipeform button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.editrecipeform button[type="submit"] {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.editrecipeform button[type="submit"]:hover {
+  background-color: #e07b00;
+  transform: translateY(-2px);
+}
+
+.editrecipeform button[type="button"] {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.editrecipeform button[type="button"]:hover {
+  background-color: #e0e0e0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .editrecipecontainer .editrecipeform {
+    height: 95vh;
+    padding: 20px;
+  }
+  
+  #editrecipetitle {
+    font-size: 1.2rem;
+  }
 }
