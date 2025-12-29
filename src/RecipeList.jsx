@@ -16,6 +16,7 @@ import addimg from './assets/plusicon.png';
 export default function RecipeList() {
 
     const location = useLocation();
+    const cloudinary_name = import.meta.env.CLOUDINARY_CLOUD_NAME;
 
     const {
         isLoading,
@@ -122,7 +123,7 @@ export default function RecipeList() {
         formData.append('upload_preset', 'recipewebsite');
 
         try {
-            const res = await fetch(`https://api.cloudinary.com/v1_1/dxrlfbw2k/image/upload`, {
+            const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudinary_name}/image/upload`, {
                 method: 'POST',
                 body: formData,
             });
