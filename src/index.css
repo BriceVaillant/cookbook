@@ -6,9 +6,10 @@
   box-sizing: border-box;
 }
 :root {
-  --dark: #0B0C08;
-  --light: #EDFD5D;
-  --darkgrey: darkgrey;
+  --primary-color: #ff8c00;
+  --text-color: #333;
+  --bg-color: #fff;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

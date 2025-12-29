@@ -5,7 +5,7 @@ import RecipeDetails from './components/RecipeDetails';
 
 import mealImg from './assets/meal.jpg';
 import dessertImg from './assets/dessert.jpg';
-import backgrdImg from './assets/background.jpg';
+import backgrdImg from './assets/cookingbanner.jpg';
 import emptyHeart from './assets/Emptyheart.png';
 import fullHeart from './assets/Fullheart.png';
 

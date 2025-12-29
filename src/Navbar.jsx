@@ -3,69 +3,79 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
+import './Navbar.css';
 
 export default function Navbar() {
     const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
-    //let you go to a new url
     const navigate = useNavigate();
-    //this store what the user type
     const [searchQuery, setSearchQuery] = useState("");
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const handleLogin = () => loginWithRedirect();
     const handleLogout = () => logout({ returnTo: window.location.origin });
 
-    //handlle search logic 
     const handleSubmit = (e) => {
         e.preventDefault();
-        //prevent empty search
         const trimmed = searchQuery.trim();
         if (!trimmed) return;
-        //encoreurl prevent special character from breaking the url
-        //.trim remove white space
         navigate("/projects/recipe/recipelist?search=" + encodeURIComponent(trimmed));
-        //clear the input after search
         setSearchQuery("");
+        setIsMobileMenuOpen(false);
     };
 
-    //handle discover et your own recipe
     const handleRecettesClick = () => {
         if (!isAuthenticated) {
             loginWithRedirect();
         } else {
             navigate("/recipes");
         }
+        setIsMobileMenuOpen(false);
     };
+
+    const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
     return (
         <nav className="navbar">
-            <div className="name">C.I.Y</div>
-            <div className="inputfieldcontainer">
-                <form className="searchformcontainer" onSubmit={handleSubmit}>
-                    <input
-                        className="loop"
-                        type="text"
-                        id="text-input"
-                        placeholder="Chercher une recette ou un ingrédient..."
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        required
-                    />
-                    <button className="inputbutton" type="submit">🔍</button>
-                </form>
+            <div className="navbar-container">
+                <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+                    C.I.Y
+                </Link>
 
-                <div className="listcontainer">
-                    <ul>
+                <div className="menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                    {isMobileMenuOpen ? '✕' : '☰'}
+                </div>
+
+                <div className={`navbar-menu ${isMobileMenuOpen ? 'active' : ''}`}>
+                    <form className="search-form" onSubmit={handleSubmit}>
+                        <input
+                            type="text"
+                            placeholder="Chercher une recette..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                        />
+                        <button type="submit">🔍</button>
+                    </form>
+
+                    <ul className="nav-links">
                         <li>
-                            <Link to="/" className="navbarlink">Découvrir</Link>
+                            <Link to="/" className="nav-link" onClick={closeMobileMenu}>
+                                Découvrir
+                            </Link>
                         </li>
                         <li>
-                            <button className="navbarlink" onClick={handleRecettesClick}>Recettes</button>
+                            <button className="nav-link btn-text" onClick={handleRecettesClick}>
+                                Recettes
+                            </button>
                         </li>
                         <li>
                             {!isAuthenticated ? (
-                                <button className="navbarlink" onClick={handleLogin}>Log In</button>
+                                <button className="nav-link btn-auth" onClick={handleLogin}>
+                                    Se Connecter
+                                </button>
                             ) : (
-                                <button className="navbarlink" onClick={handleLogout}>Log Out</button>
+                                <button className="nav-link btn-auth" onClick={handleLogout}>
+                                    Se déconnecter
+                                </button>
                             )}
                         </li>
                     </ul>
