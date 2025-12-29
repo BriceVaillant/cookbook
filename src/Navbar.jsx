@@ -32,7 +32,7 @@ export default function Navbar() {
         if (!isAuthenticated) {
             loginWithRedirect();
         } else {
-            navigate("/projects/recipe/recipelist");
+            navigate("/recipes");
         }
     };
 
@@ -56,7 +56,7 @@ export default function Navbar() {
                 <div className="listcontainer">
                     <ul>
                         <li>
-                            <Link to="/projects/recipe/home" className="navbarlink">Découvrir</Link>
+                            <Link to="/" className="navbarlink">Découvrir</Link>
                         </li>
                         <li>
                             <button className="navbarlink" onClick={handleRecettesClick}>Recettes</button>
