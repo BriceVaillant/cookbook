@@ -9,6 +9,8 @@ import RecipeDetails from './components/RecipeDetails';
 import mealImg from './assets/meal.jpg';
 import dessertImg from './assets/dessert.jpg';
 import addimg from './assets/plusicon.png';
+import emptyHeart from './assets/Emptyheart.png';
+import fullHeart from './assets/Fullheart.png';
 
 
 
@@ -309,9 +311,27 @@ export default function RecipeList() {
                     {filteredRecipes.map(recipe => (
                         <div key={recipe._id} className="foodcard" onClick={() => handleFoodCardClick(recipe)}>
                             <h2>{recipe.title}</h2>
-                            <img
-                                src={recipe.image || (recipe.type === 'meal' ? mealImg : dessertImg)}
-                            />
+                            <div className="imgcardcontainer">
+                                <img
+                                    className="bgdimg"
+                                    src={recipe.image || (recipe.type === 'meal' ? mealImg : dessertImg)}
+                                    alt={recipe.title}
+                                />
+                                <button
+                                    type="button"
+                                    className="homefavbtn"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        toggleFavorite(recipe._id);
+                                    }}
+                                >
+                                    <img
+                                        src={userFavorites.includes(recipe._id.toString()) ? fullHeart : emptyHeart}
+                                        alt={userFavorites.includes(recipe._id.toString()) ? 'Unfavorite' : 'Favorite'}
+                                        className="heartIcon"
+                                    />
+                                </button>
+                            </div>
                         </div>
                     ))}
                 </div>
