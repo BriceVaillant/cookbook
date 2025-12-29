@@ -5,7 +5,6 @@ import RecipeDetails from './components/RecipeDetails';
 
 import mealImg from './assets/meal.jpg';
 import dessertImg from './assets/dessert.jpg';
-import backgrdImg from './assets/cookingbanner.jpg';
 import emptyHeart from './assets/Emptyheart.png';
 import fullHeart from './assets/Fullheart.png';
 
@@ -52,11 +51,6 @@ export default function RecipeHome() {
 
     return (
         <div className="homepage">
-            <div className="imgheader">
-                <img alt="imagewithtitle" className="imgplacement" src={backgrdImg} />
-                <div className="header-overlay"></div>
-                <h1>Cook It Yourself</h1>
-            </div>
 
             <div className="ideacontainer">
                 <div className="listofrecipe">
