@@ -53,8 +53,9 @@ export default function RecipeHome() {
     return (
         <div className="homepage">
             <div className="imgheader">
-                <h1>Cook It Yourself</h1>
                 <img alt="imagewithtitle" className="imgplacement" src={backgrdImg} />
+                <div className="header-overlay"></div>
+                <h1>Cook It Yourself</h1>
             </div>
 
             <div className="ideacontainer">

@@ -6,31 +6,48 @@
 }
 
 .homepage .imgheader {
-  height: 20svh;
-  min-height: 250px;
   position: relative;
+  width: 100%;
+  height: 20vh;
+  min-height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  background-color: #f0f0f0;
 }
 
 .homepage h1 {
   position: relative;
-  z-index: 1;
-  color: white;
-  font-size: 10.5rem;
+  z-index: 3;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--primary-color);
   text-align: center;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
 .homepage .imgplacement {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Dark overlay to make text pop */
+.homepage .header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+  z-index: 2;
 }
 
 .homepage .ideacontainer {
