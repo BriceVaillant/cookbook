@@ -18,7 +18,7 @@ export default function Navbar() {
         e.preventDefault();
         const trimmed = searchQuery.trim();
         if (!trimmed) return;
-        navigate("/projects/recipe/recipelist?search=" + encodeURIComponent(trimmed));
+        navigate("/recipes?search=" + encodeURIComponent(trimmed));
         setSearchQuery("");
         setIsMobileMenuOpen(false);
     };
