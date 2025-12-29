@@ -1,0 +1,153 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  border-bottom: 2px solid black;
+  background-color: white;
+}
+
+.navbar .name {
+  color: orange;
+  font-size: clamp(1rem, 3rem, 4rem);
+  text-align: start;
+  height: 100%;
+  width: 80px;
+}
+
+.navbar .inputfieldcontainer {
+  width: calc(100vw - 60px);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 10px;
+  padding: 0 10px 0 10px;
+}
+
+.navbar .searchformcontainer {
+  position: relative;
+  width: 70%;
+}
+
+.navbar .listcontainer {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.navbar .loop {
+  width: 100%;
+  padding: 10px 40px 10px 10px;
+  font-size: 16px;
+  border-radius: 34px;
+}
+
+.navbar .inputbutton {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 35px;
+  width: 35px;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+.navbar ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+  height: 100%;
+  width: 1000%;
+}
+
+.navbar .navbarlink {
+  all: unset;
+  text-decoration: none;
+  width: 100%;
+  font-size: 24px;
+  padding: 5px;
+  color: black;
+  border: none;
+  cursor: pointer;
+  background: none;
+  display: flex;
+  justify-content: center;
+}
+
+
+@media (max-width: 1250px) {
+  .navbar .searchformcontainer {
+    width: 50%;
+  }
+
+  .navbar .listcontainer {
+    width: 50%;
+    height: 100%;
+  }
+
+  .navbar .navbarlink {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 780px) {
+  .navbar .searchformcontainer {
+    width: 40%;
+  }
+
+  .navbar .listcontainer {
+    width: 80%;
+    height: 100%;
+  }
+
+  .navbar .navbarlink {
+    font-size: 19px;
+  }
+
+  .navbar .name {
+    min-width: 80px;
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .navbar .inputbutton {
+    display: none;
+  }
+
+  .navbar .name {
+    display: none;
+  }
+
+  .navbar .inputfieldcontainer {
+    width: 1000%;
+  }
+
+  .navbar .searchformcontainer {
+    width: 40%;
+  }
+
+  .navbar .listcontainer {
+    width: 70%;
+    height: 100%;
+  }
+
+  .navbar ul {
+    gap: clamp(0.4rem, 0.7rem, 1.5rem);
+  }
+
+  .navbar .navbarlink {
+    font-size: 16px;
+  }
+
+  .navbar .name {
+    min-width: 80px;
+    font-size: 3rem;
+  }
+}

@@ -1,0 +1,48 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --dark: #0B0C08;
+  --light: #EDFD5D;
+  --darkgrey: darkgrey;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html, body {
+  height: 95vh;
+  scroll-behavior: smooth;
+}
+body { 
+  font-family: "Arsenal", sans-serif;
+}
+
+#RecipeApp {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-x: hidden;
+  /*hide scrollbar background for firefox */
+  scrollbar-width: thin;
+  scrollbar-color: white;
+  
+}
+
+#RecipeApp::-webkit-scrollbar {
+  width: 8px;
+}
+
+#RecipeApp::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#RecipeApp::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
